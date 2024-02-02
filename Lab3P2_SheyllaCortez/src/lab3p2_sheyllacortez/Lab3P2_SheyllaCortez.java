@@ -4,17 +4,16 @@
  */
 package lab3p2_sheyllacortez;
 
+import java.util.Scanner;
+
 /**
  *
  * @author DELL
  */
 public class Lab3P2_SheyllaCortez {
-
-    /**
-     * @param args the command line arguments
-     */
+    private static Scanner entrada = new Scanner(System.in);
     public static void main(String[] args) {
-        // TODO code application logic here
+        
     }
     
 }
