@@ -37,18 +37,21 @@ public class Lab3P2_SheyllaCortez {
                     crearPokeball();
                     break;
                 case 3:
+                    listarPoke();
                     break;
                 case 4:
                     break;
                 case 5:
                     break;
-                case 6:
+                case 6: 
+                    break;
+                case 7:
                     System.out.println("Que le vaya bien instructor ");
                     break;
                 default:
                     System.out.println("SU opcion es invalida ");
             }
-        } while (opcion != 6);
+        } while (opcion != 7);
     }
 
     //Método para crear pokemon 
@@ -205,5 +208,22 @@ public class Lab3P2_SheyllaCortez {
             }
         }
         return false;
+    }
+    
+    //Método para listar agrupados 
+    public static void listarPoke(){
+        for (Pokemon i : pokemoncito) {
+            if (i instanceof fireType) {
+                System.out.println("FireType -> ");
+                System.out.println(i);
+            } else if (i instanceof waterType){
+                System.out.println("WaterType ->");
+                System.out.println(i);            
+            } else if (i instanceof grassType){
+                System.out.println("GrassType ->");
+                System.out.println(i);
+            }
+        }
+    
     }
 }
