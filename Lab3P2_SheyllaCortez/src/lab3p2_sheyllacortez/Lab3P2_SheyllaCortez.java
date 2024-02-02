@@ -34,7 +34,7 @@ public class Lab3P2_SheyllaCortez {
                     crearPoke();
                     break;
                 case 2:
-
+                    crearPokeball();
                     break;
                 case 3:
                     break;
@@ -173,5 +173,37 @@ public class Lab3P2_SheyllaCortez {
         }
         
         pokemoncito.add(new grassType(nombre, pokedex, naturaleza, atrapado, poke, habitat, dominio));
+    }
+
+    //Método para crear pokebola
+    public static void crearPokeball() {
+        System.out.println("Ingrese su color: ");
+        entrada.nextLine();
+        String color = entrada.nextLine();
+        System.out.println("Ingrese numero de serie: ");
+        int numSerie = entrada.nextInt();
+        while (numSerie(numSerie) == true) {
+            System.out.println("Su serie ya esta en un pokebola ");
+            System.out.println("Ingrese numero de serie: ");
+            numSerie = entrada.nextInt();
+        }
+        System.out.println("Ingrese la eficiencia: ");
+        int eficiencia = entrada.nextInt();
+        while ((eficiencia < 1) || (eficiencia > 3)) {
+            System.out.println("Ingrese la eficiencia: ");
+            eficiencia = entrada.nextInt();
+        }
+        mispokes.add(new Pokeball(color, numSerie, eficiencia));
+        System.out.println(mispokes);
+    }
+
+    //Validar el numero de series
+    public static boolean numSerie(int numSerie) {
+        for (Pokeball j : mispokes) {
+            if (j.getSerie() == numSerie) {
+                return true;
+            }
+        }
+        return false;
     }
 }
