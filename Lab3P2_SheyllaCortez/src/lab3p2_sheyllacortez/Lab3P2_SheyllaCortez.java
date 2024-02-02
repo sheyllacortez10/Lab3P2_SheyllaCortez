@@ -64,7 +64,7 @@ public class Lab3P2_SheyllaCortez {
                     crearpkFuego();
                     break;                   
                 case 2: 
-                    
+                    crearpkAgua();
                     break; 
                    
                 case 3: 
@@ -98,15 +98,52 @@ public class Lab3P2_SheyllaCortez {
         }
         System.out.println("Ingrese pontencia de las llamas del pokemon: ");
         int firepotent = entrada.nextInt();
-        
+
         pokemoncito.add(new fireType(nombre, pokedex, naturaleza, atrapado, poke, firepotent));
         System.out.println(pokemoncito);
     }
-    
+
     //Método para crear pokemones de agua 
-    public static void crearpkAgua(){
+    public static void crearpkAgua() {
+        boolean atrapado = false;
+        Pokeball poke = null;
+
+        System.out.println("Ingrese el nombre del pokemon: ");
+        entrada.nextLine();
+        String nombre = entrada.nextLine();
+        System.out.println("Ingrese numero del pokedex: ");
+        int pokedex = entrada.nextInt();
+        System.out.println("Ingrese la naturaleza del pokemon: ");
+        entrada.nextLine();
+        String naturaleza = entrada.nextLine();
+        while ((!naturaleza.equalsIgnoreCase("Timido")) && (!naturaleza.equalsIgnoreCase("Energetico")) && (!naturaleza.equalsIgnoreCase("Misterioso"))) {
+            System.out.println("Naturaleza incorrecta ");
+            System.out.println("Ingrese la naturaleza del pokemon: ");
+            naturaleza = entrada.nextLine();
+        }
+        System.out.println("Su pokemon puede vivir fuera del agua {Si o No}:");
+        String vivirAgua = entrada.nextLine();
+        boolean viveAgua = false;
+        if (vivirAgua.equalsIgnoreCase("si")) {
+            viveAgua = true;
+        } else if (vivirAgua.equalsIgnoreCase("no")) {
+            viveAgua = false;
+        } else {
+            System.out.println("Su opcion es invalida");
+            while ((!vivirAgua.equalsIgnoreCase("si")) && (!vivirAgua.equalsIgnoreCase("no"))) {
+                System.out.println("Su pokemon puede vivir fuera del agua {Si o No}:");
+                vivirAgua = entrada.nextLine();
+                if (vivirAgua.equalsIgnoreCase("si")) {
+                    viveAgua = true;
+                } else if (vivirAgua.equalsIgnoreCase("no")) {
+                    viveAgua = false;
+                }
+            }
+        }       
+        System.out.println("Ingrese la velocidad para nadar: ");
+        int rapidez = entrada.nextInt();
     
-    
-    
+        pokemoncito.add(new waterType(rapidez, viveAgua, nombre, pokedex, naturaleza, atrapado, poke));
+        System.out.println(pokemoncito);
     }
 }
