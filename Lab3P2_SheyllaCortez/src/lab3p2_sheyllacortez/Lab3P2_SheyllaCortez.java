@@ -61,6 +61,7 @@ public class Lab3P2_SheyllaCortez {
                     }
                     break;
                 case 5:
+                    atrapaPk();
                     System.out.println("Su programador de DMAF games no pudo programar esta parte ");
                     break;
                 case 6:
@@ -186,6 +187,7 @@ public class Lab3P2_SheyllaCortez {
         pokemoncito.add(new waterType(rapidez, viveAgua, nombre, pokedex, naturaleza, atrapado, poke));
     }
 
+    
     //Método para crear pokemones grass
     public static void crearpkGrass() {
         boolean atrapado = false;
@@ -472,5 +474,12 @@ public class Lab3P2_SheyllaCortez {
                 }
             }
         }
+    }
+    
+    //Método para atrapar pokemon
+    public static void atrapaPk(){
+        System.out.println("Ingrese el indice de la pokebola a usar: ");
+        int usarpk = entrada.nextInt();
+    
     }
 }
