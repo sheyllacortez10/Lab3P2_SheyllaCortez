@@ -70,7 +70,7 @@ public class Lab3P2_SheyllaCortez {
                     int option = entrada.nextInt();
                     switch (option) {
                         case 1:
-                            
+                            modiFire();
                             break;
                         case 2: 
                             
@@ -333,9 +333,9 @@ public class Lab3P2_SheyllaCortez {
         }
 
     }
-    
+
     //Método modifca fire
-    public static void modiFire(){
+    public static void modiFire() {
         for (int i = 0; i < pokemoncito.size(); i++) {
             if (pokemoncito.get(i).isAtrapado()) {
                 System.out.println("Ingrese el pokemon a modificar: ");
@@ -352,10 +352,18 @@ public class Lab3P2_SheyllaCortez {
                             String nombre = entrada.nextLine();
                             pokemoncito.get(i).setNombre(nombre);
                             break;
-                        case 2: 
+                        case 2:
                             System.out.println("Ingrese la nueva entrada: ");
                             int entradaPoke = entrada.nextInt();
                             pokemoncito.get(i).setNumPokedex(entradaPoke);
+                            break;
+                        case 3:
+                            fireType fire = (fireType) pokemoncito.get(i);
+                            System.out.println("Ingrese la nueva potencia: ");
+                            int potencia = entrada.nextInt();
+                            fire.setFirepotent(potencia);
+                            pokemoncito.remove(i);
+                            pokemoncito.add(i, fire);
                         default:
                             System.out.println("No puede modicar ese elemento ");
                     }
@@ -363,9 +371,9 @@ public class Lab3P2_SheyllaCortez {
             }
         }
     }
-    
+
     //Método modifca water
-    public static void modiWater(){
+    public static void modiWater() {
         for (int i = 0; i < pokemoncito.size(); i++) {
             if (pokemoncito.get(i).isAtrapado()) {
                 System.out.println("Ingrese el pokemon a modificar: ");
@@ -382,19 +390,46 @@ public class Lab3P2_SheyllaCortez {
                             String nombre = entrada.nextLine();
                             pokemoncito.get(i).setNombre(nombre);
                             break;
-                        case 2: 
+                        case 2:
                             System.out.println("Ingrese la nueva entrada: ");
                             int entradaPoke = entrada.nextInt();
                             pokemoncito.get(i).setNumPokedex(entradaPoke);
+                            break;
+                        case 3:
+                            waterType water = (waterType) pokemoncito.get(i);
+                            System.out.println("Ingrese si puede o no vivir fuera del agua: ");
+                            String vivir = entrada.nextLine();
+                            String vivirAgua = entrada.nextLine();
+                            boolean viveAgua = false;
+                            if (vivirAgua.equalsIgnoreCase("si")) {
+                                viveAgua = true;
+                            } else if (vivirAgua.equalsIgnoreCase("no")) {
+                                viveAgua = false;
+                            } else {
+                                System.out.println("Su opcion es invalida");
+                                while ((!vivirAgua.equalsIgnoreCase("si")) && (!vivirAgua.equalsIgnoreCase("no"))) {
+                                    System.out.println("Su pokemon puede vivir fuera del agua {Si o No}:");
+                                    vivirAgua = entrada.nextLine();
+                                    if (vivirAgua.equalsIgnoreCase("si")) {
+                                        viveAgua = true;
+                                    } else if (vivirAgua.equalsIgnoreCase("no")) {
+                                        viveAgua = false;
+                                    }
+                                }
+                            }
+                            water.setLifeWater(viveAgua);
+                            pokemoncito.remove(i);
+                            pokemoncito.add(i, water);
                         default:
                             System.out.println("No puede modicar ese elemento ");
-                    }   
+                    }
                 }
             }
-        } 
+        }
     }
-        //Método modifca fire
-    public static void modiGrass(){
+    //Método modifca fire
+
+    public static void modiGrass() {
         for (int i = 0; i < pokemoncito.size(); i++) {
             if (pokemoncito.get(i).isAtrapado()) {
                 System.out.println("Ingrese el pokemon a modificar: ");
@@ -417,12 +452,9 @@ public class Lab3P2_SheyllaCortez {
                             pokemoncito.get(i).setNumPokedex(entradaPoke);
                         default:
                             System.out.println("No puede modicar ese elemento ");
-                    }
-                    
-                    
+                    }    
                 }
             }
         }
-    
     }
 }
