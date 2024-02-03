@@ -61,9 +61,10 @@ public class Lab3P2_SheyllaCortez {
                     }
                     break;
                 case 5:
+                    System.out.println("Su programador de DMAF games no pudo programar esta parte ");
                     break;
                 case 6:
-                    System.out.println("Ingrese el tipo de pokemon que desea eliminar: ");
+                    System.out.println("Ingrese el tipo de pokemon que desea mpdificar: ");
                     System.out.println("1) Fire");
                     System.out.println("2) Water");
                     System.out.println("3) Grass");
@@ -73,10 +74,10 @@ public class Lab3P2_SheyllaCortez {
                             modiFire();
                             break;
                         case 2: 
-                            
+                            modiWater();
                             break; 
                         case 3: 
-                            
+                            modiGrass();
                             break;
                         default:
                             System.out.println("Opcion invalida");
@@ -335,9 +336,11 @@ public class Lab3P2_SheyllaCortez {
     }
 
     //Método modifca fire
+    //IMPORTANTE - le puse al if que sea false para que deje entrar por si no termino el atrapar, si se lo quito no se podra probar
+    //Pero estoy al tanto de que solo son los que ya fueron atrapados, es decir cuando el boolean es 
     public static void modiFire() {
         for (int i = 0; i < pokemoncito.size(); i++) {
-            if (pokemoncito.get(i).isAtrapado()) {
+            if ((pokemoncito.get(i).isAtrapado()) == false) {
                 System.out.println("Ingrese el pokemon a modificar: ");
                 int modificar = entrada.nextInt();
                 if (pokemoncito.get(modificar) instanceof fireType) {
@@ -349,6 +352,7 @@ public class Lab3P2_SheyllaCortez {
                     switch (op) {
                         case 1:
                             System.out.println("Ingrese el nuevo nombre: ");
+                            entrada.nextLine();
                             String nombre = entrada.nextLine();
                             pokemoncito.get(i).setNombre(nombre);
                             break;
@@ -375,18 +379,19 @@ public class Lab3P2_SheyllaCortez {
     //Método modifca water
     public static void modiWater() {
         for (int i = 0; i < pokemoncito.size(); i++) {
-            if (pokemoncito.get(i).isAtrapado()) {
+            if ((pokemoncito.get(i).isAtrapado()) == false) {
                 System.out.println("Ingrese el pokemon a modificar: ");
                 int modificar = entrada.nextInt();
                 if (pokemoncito.get(modificar) instanceof waterType) {
                     System.out.println("Que desea modifcar: ");
                     System.out.println("1) Nombre ");
                     System.out.println("2) Numero de entrada en la pokedex ");
-                    System.out.println("3) Potencia de llamas ");
+                    System.out.println("3) Vivir fuera de agua ");
                     int op = entrada.nextInt();
                     switch (op) {
                         case 1:
                             System.out.println("Ingrese el nuevo nombre: ");
+                            entrada.nextLine();
                             String nombre = entrada.nextLine();
                             pokemoncito.get(i).setNombre(nombre);
                             break;
@@ -431,18 +436,19 @@ public class Lab3P2_SheyllaCortez {
 
     public static void modiGrass() {
         for (int i = 0; i < pokemoncito.size(); i++) {
-            if (pokemoncito.get(i).isAtrapado()) {
+            if ((pokemoncito.get(i).isAtrapado()) == false) {
                 System.out.println("Ingrese el pokemon a modificar: ");
                 int modificar = entrada.nextInt();
                 if (pokemoncito.get(modificar) instanceof grassType) {
                     System.out.println("Que desea modifcar: ");
                     System.out.println("1) Nombre ");
                     System.out.println("2) Numero de entrada en la pokedex ");
-                    System.out.println("3) Potencia de llamas ");
+                    System.out.println("3) Habitat");
                     int op = entrada.nextInt();
                     switch (op) {
                         case 1:
                             System.out.println("Ingrese el nuevo nombre: ");
+                            entrada.nextLine();
                             String nombre = entrada.nextLine();
                             pokemoncito.get(i).setNombre(nombre);
                             break;
@@ -450,6 +456,16 @@ public class Lab3P2_SheyllaCortez {
                             System.out.println("Ingrese la nueva entrada: ");
                             int entradaPoke = entrada.nextInt();
                             pokemoncito.get(i).setNumPokedex(entradaPoke);
+                            break;
+                        case 3:
+                            grassType grass = (grassType) pokemoncito.get(i);
+                            System.out.println("Ingrese el nuevo habitat: ");
+                            entrada.nextLine();
+                            String habitat = entrada.nextLine();
+                            grass.setHabitat(habitat);
+                            pokemoncito.remove(i);
+                            pokemoncito.add(i, grass);
+                            break;
                         default:
                             System.out.println("No puede modicar ese elemento ");
                     }    
