@@ -63,12 +63,30 @@ public class Lab3P2_SheyllaCortez {
                 case 5:
                     break;
                 case 6:
+                    System.out.println("Ingrese el tipo de pokemon que desea eliminar: ");
+                    System.out.println("1) Fire");
+                    System.out.println("2) Water");
+                    System.out.println("3) Grass");
+                    int option = entrada.nextInt();
+                    switch (option) {
+                        case 1:
+                            
+                            break;
+                        case 2: 
+                            
+                            break; 
+                        case 3: 
+                            
+                            break;
+                        default:
+                            System.out.println("Opcion invalida");
+                    }
                     break;
                 case 7:
                     System.out.println("Que le vaya bien instructor ");
                     break;
                 default:
-                    System.out.println("SU opcion es invalida ");
+                    System.out.println("Su opcion es invalida ");
             }
         } while (opcion != 7);
     }
@@ -314,5 +332,97 @@ public class Lab3P2_SheyllaCortez {
             System.out.println("No esta en los parametros ");
         }
 
+    }
+    
+    //Método modifca fire
+    public static void modiFire(){
+        for (int i = 0; i < pokemoncito.size(); i++) {
+            if (pokemoncito.get(i).isAtrapado()) {
+                System.out.println("Ingrese el pokemon a modificar: ");
+                int modificar = entrada.nextInt();
+                if (pokemoncito.get(modificar) instanceof fireType) {
+                    System.out.println("Que desea modifcar: ");
+                    System.out.println("1) Nombre ");
+                    System.out.println("2) Numero de entrada en la pokedex ");
+                    System.out.println("3) Potencia de llamas ");
+                    int op = entrada.nextInt();
+                    switch (op) {
+                        case 1:
+                            System.out.println("Ingrese el nuevo nombre: ");
+                            String nombre = entrada.nextLine();
+                            pokemoncito.get(i).setNombre(nombre);
+                            break;
+                        case 2: 
+                            System.out.println("Ingrese la nueva entrada: ");
+                            int entradaPoke = entrada.nextInt();
+                            pokemoncito.get(i).setNumPokedex(entradaPoke);
+                        default:
+                            System.out.println("No puede modicar ese elemento ");
+                    }
+                }
+            }
+        }
+    }
+    
+    //Método modifca water
+    public static void modiWater(){
+        for (int i = 0; i < pokemoncito.size(); i++) {
+            if (pokemoncito.get(i).isAtrapado()) {
+                System.out.println("Ingrese el pokemon a modificar: ");
+                int modificar = entrada.nextInt();
+                if (pokemoncito.get(modificar) instanceof waterType) {
+                    System.out.println("Que desea modifcar: ");
+                    System.out.println("1) Nombre ");
+                    System.out.println("2) Numero de entrada en la pokedex ");
+                    System.out.println("3) Potencia de llamas ");
+                    int op = entrada.nextInt();
+                    switch (op) {
+                        case 1:
+                            System.out.println("Ingrese el nuevo nombre: ");
+                            String nombre = entrada.nextLine();
+                            pokemoncito.get(i).setNombre(nombre);
+                            break;
+                        case 2: 
+                            System.out.println("Ingrese la nueva entrada: ");
+                            int entradaPoke = entrada.nextInt();
+                            pokemoncito.get(i).setNumPokedex(entradaPoke);
+                        default:
+                            System.out.println("No puede modicar ese elemento ");
+                    }   
+                }
+            }
+        } 
+    }
+        //Método modifca fire
+    public static void modiGrass(){
+        for (int i = 0; i < pokemoncito.size(); i++) {
+            if (pokemoncito.get(i).isAtrapado()) {
+                System.out.println("Ingrese el pokemon a modificar: ");
+                int modificar = entrada.nextInt();
+                if (pokemoncito.get(modificar) instanceof grassType) {
+                    System.out.println("Que desea modifcar: ");
+                    System.out.println("1) Nombre ");
+                    System.out.println("2) Numero de entrada en la pokedex ");
+                    System.out.println("3) Potencia de llamas ");
+                    int op = entrada.nextInt();
+                    switch (op) {
+                        case 1:
+                            System.out.println("Ingrese el nuevo nombre: ");
+                            String nombre = entrada.nextLine();
+                            pokemoncito.get(i).setNombre(nombre);
+                            break;
+                        case 2: 
+                            System.out.println("Ingrese la nueva entrada: ");
+                            int entradaPoke = entrada.nextInt();
+                            pokemoncito.get(i).setNumPokedex(entradaPoke);
+                        default:
+                            System.out.println("No puede modicar ese elemento ");
+                    }
+                    
+                    
+                }
+            }
+        }
+    
     }
 }
