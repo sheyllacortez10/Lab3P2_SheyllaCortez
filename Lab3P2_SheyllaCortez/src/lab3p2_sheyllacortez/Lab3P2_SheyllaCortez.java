@@ -26,7 +26,8 @@ public class Lab3P2_SheyllaCortez {
             System.out.println("3) Listar Pokemon ");
             System.out.println("4) Eliminar Pokemon ");
             System.out.println("5) Capturar Pokemon ");
-            System.out.println("6) Salir");
+            System.out.println("6) Modificar Pokemon");
+            System.out.println("7) Salir ");
             opcion = entrada.nextInt();
 
             switch (opcion) {
@@ -40,10 +41,28 @@ public class Lab3P2_SheyllaCortez {
                     listarPoke();
                     break;
                 case 4:
+                    System.out.println("Ingrese el tipo de pokemon que desea eliminar: ");
+                    System.out.println("1) Fire");
+                    System.out.println("2) Water");
+                    System.out.println("3) Grass");
+                    int op = entrada.nextInt();
+                    switch (op) {
+                        case 1:
+                            deleteFire();
+                            break;
+                        case 2:
+                            deleteWater();
+                            break;
+                        case 3:
+                            deleteGrass();
+                            break;
+                        default:
+                            System.out.println("Opcion invalida ");
+                    }
                     break;
                 case 5:
                     break;
-                case 6: 
+                case 6:
                     break;
                 case 7:
                     System.out.println("Que le vaya bien instructor ");
@@ -174,7 +193,7 @@ public class Lab3P2_SheyllaCortez {
             System.out.println("Ingrese el dominio sobre las plantas [0-100]: ");
             dominio = entrada.nextInt();
         }
-        
+
         pokemoncito.add(new grassType(nombre, pokedex, naturaleza, atrapado, poke, habitat, dominio));
     }
 
@@ -209,21 +228,91 @@ public class Lab3P2_SheyllaCortez {
         }
         return false;
     }
-    
+
     //Método para listar agrupados 
-    public static void listarPoke(){
+    public static void listarPoke() {
         for (Pokemon i : pokemoncito) {
             if (i instanceof fireType) {
                 System.out.println("FireType -> ");
                 System.out.println(i);
-            } else if (i instanceof waterType){
+            } else if (i instanceof waterType) {
                 System.out.println("WaterType ->");
-                System.out.println(i);            
-            } else if (i instanceof grassType){
+                System.out.println(i);
+            } else if (i instanceof grassType) {
                 System.out.println("GrassType ->");
                 System.out.println(i);
             }
         }
-    
+
+    }
+
+    //Método para eliminar pokemones
+    public static void deleteFire() {
+        for (int i = 0; i < pokemoncito.size(); i++) {
+            if (pokemoncito.get(i) instanceof fireType) {
+                System.out.println(i + ")" + pokemoncito.get(i));
+            }
+        }
+
+        //Eliminar
+        System.out.println("Introducir el indice a eliminar: ");
+        int indice = entrada.nextInt();
+        while (indice < 0 || indice > pokemoncito.size()) {
+            System.out.println("Introducir el indice a eliminar: ");
+            indice = entrada.nextInt();
+        }
+        if (pokemoncito.get(indice) instanceof fireType) {
+            pokemoncito.remove(indice);
+            System.out.println("Pokemoncito eliminado");
+        } else {
+            System.out.println("No esta en los parametros ");
+        }
+
+    }
+
+    public static void deleteWater() {
+        for (int i = 0; i < pokemoncito.size(); i++) {
+            if (pokemoncito.get(i) instanceof waterType) {
+                System.out.println(i + ")" + pokemoncito.get(i));
+            }
+        }
+
+        //Eliminar
+        System.out.println("Introducir el indice a eliminar: ");
+        int indice = entrada.nextInt();
+        while (indice < 0 || indice > pokemoncito.size()) {
+            System.out.println("Introducir el indice a eliminar: ");
+            indice = entrada.nextInt();
+        }
+        if (pokemoncito.get(indice) instanceof waterType) {
+            pokemoncito.remove(indice);
+            System.out.println("Pokemoncito eliminado");
+        } else {
+            System.out.println("No esta en los parametros ");
+        }
+
+    }
+
+    public static void deleteGrass() {
+        for (int i = 0; i < pokemoncito.size(); i++) {
+            if (pokemoncito.get(i) instanceof grassType) {
+                System.out.println(i + ")" + pokemoncito.get(i));
+            }
+        }
+
+        //Eliminar
+        System.out.println("Introducir el indice a eliminar: ");
+        int indice = entrada.nextInt();
+        while (indice < 0 || indice > pokemoncito.size()) {
+            System.out.println("Introducir el indice a eliminar: ");
+            indice = entrada.nextInt();
+        }
+        if (pokemoncito.get(indice) instanceof grassType) {
+            pokemoncito.remove(indice);
+            System.out.println("Pokemoncito eliminado");
+        } else {
+            System.out.println("No esta en los parametros ");
+        }
+
     }
 }

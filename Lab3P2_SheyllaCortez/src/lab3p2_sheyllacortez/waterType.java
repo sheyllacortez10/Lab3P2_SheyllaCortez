@@ -36,7 +36,7 @@ public class waterType  extends Pokemon{
 
     @Override
     public String toString() {
-        return "waterType{" + "lifeWater=" + lifeWater + ", rapidez=" + rapidez + '}';
+        return super.toString() + "waterType{" + "lifeWater=" + lifeWater + ", rapidez=" + rapidez + '}';
     }
     
     
